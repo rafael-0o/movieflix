@@ -7,7 +7,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "tb_category")
+@Table(name = "category")
 @ToString
 @Getter
 @Setter

@@ -10,7 +10,7 @@ import lombok.*;
 @Setter
 @Builder
 @ToString
-@Table(name = "tb_streaming")
+@Table(name = "streaming")
 public class Streaming {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
