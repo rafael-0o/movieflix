@@ -5,6 +5,7 @@ import br.com.movieflix.Controller.Response.CategoryResponse;
 import br.com.movieflix.Entity.Category;
 import br.com.movieflix.Mapper.CategoryMapper;
 import br.com.movieflix.Service.CategoryService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -28,7 +29,7 @@ public class CategoryController {
         return ResponseEntity.ok(categories);
     }
     @PostMapping("/create")
-    public ResponseEntity<CategoryResponse> saveCategory(@RequestBody CategoryRequest categoryRequest){
+    public ResponseEntity<CategoryResponse> saveCategory(@Valid @RequestBody CategoryRequest categoryRequest){
         Category newCategory = CategoryMapper.toCategory(categoryRequest);
         Category savedCategory = categoryService.saveCategory(newCategory);
         return ResponseEntity.status(HttpStatus.CREATED)

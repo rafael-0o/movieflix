@@ -2,6 +2,7 @@ package br.com.movieflix.Controller.Response;
 
 import br.com.movieflix.Entity.Category;
 import br.com.movieflix.Entity.Streaming;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Builder;
 
 import java.time.LocalDate;
@@ -12,6 +13,7 @@ public record MovieResponse(
         Long id,
         String title,
         String description,
+        @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
         LocalDate releaseDate,
         double rating,
         List<CategoryResponse> categories,

@@ -13,7 +13,8 @@ import java.util.List;
 
 @UtilityClass
 public class MovieMapper {
-
+/**o map tranforma um valor contido em uma operação (Optional,stream) em um outro valor e aplicando uma função a ele,
+ Ele é muito útil para encadear operações de forma limpa e evitar verificações de null. **/
     public static Movie toMovie(MovieRequest movieRequest){
         List<Category> categories=movieRequest.categories()
                 .stream()
@@ -26,7 +27,6 @@ public class MovieMapper {
 
         return Movie.builder()
                 .title(movieRequest.title())
-
                 .description(movieRequest.description())
                 .releaseDate(movieRequest.releaseDate())
                 .rating(movieRequest.rating())
