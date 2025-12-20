@@ -26,6 +26,8 @@ public class SecurityConfig {
                 .sessionManagement(session-> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorize-> authorize
                         .dispatcherTypeMatchers(DispatcherType.ERROR).permitAll()
+                        .requestMatchers(HttpMethod.GET , "/api/api-docs/**").permitAll()
+                        .requestMatchers(HttpMethod.GET , "/api/swagger/**").permitAll()
                         .requestMatchers(HttpMethod.POST , "/api/movieflix/auth/register").permitAll()
                         .requestMatchers(HttpMethod.POST , "/api/movieflix/auth/login").permitAll()
                                 .anyRequest().authenticated()

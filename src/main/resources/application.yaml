@@ -15,9 +15,22 @@ spring:
     enabled: true
     baseline-on-migrate: true
     locations: classpath:db/migration
+  config:
+    import: optional:file:.env[.properties]
   movieflix:
     security:
       secret: "secret-word"
-
-  config:
-    import: optional:file:.env[.properties]
+springdoc:
+  # Define um caminho base para todos os endpoints do springdoc
+  # A documentação da API estará em /api/v3/api-docs
+  # A UI do Swagger estará em /api/swagger-ui.html
+  api-docs:
+   path: /api/api-docs
+  # Melhora a exibição dos nomes dos métodos no Swagger UI
+  show-actuator: true
+  swagger-ui:
+    path: /api/swagger/index.html
+    # Agrupa os endpoints por controller
+    tags-sorter: alpha
+    # Ordena as operações (GET, POST, etc.) alfabeticamente
+    operations-sorter: alpha
