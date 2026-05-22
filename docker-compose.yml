@@ -1,0 +1,17 @@
+
+services:
+  postgres-db:
+    image: postgres:16-alpine
+    container_name: ${DB_NAME}-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_PORT=${DB_PORT}
+    volumes:
+      - ${DB_NAME}-data:/var/lib/postgresql/data
+
+volumes:
+  movieflix-data:
